@@ -3,19 +3,10 @@ import React from "react";
 export const Navbar = () => {
   return (
     <div>
-      <header className="max-w-7xl mx-auto p-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-linear-to-br from-purple-600 to-indigo-500 flex items-center justify-center text-white font-bold">
-            AR
-          </div>
-          <div>
-            {/* Author name and tagline */}
-            <h1 className="font-semibold">Asjad Reza</h1>
-            <p className="text-xs text-slate-400 -mt-0.5">
-              Frontend Engineer — React · Next.js · Vue
-            </p>
-          </div>
-        </div>
+      <header className="max-w-460 mx-auto p-1 flex items-center justify-between">
+        <a className="h-auto flex flex-row items-center" href="/">
+          <span className="custom-font">Asjad</span>
+        </a>
 
         {/* center/right: simple nav for larger screens */}
         <nav className="hidden md:flex gap-6 items-center text-slate-300">

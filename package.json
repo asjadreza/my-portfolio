@@ -9,10 +9,18 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/lab": "^7.0.1-beta.19",
+    "@mui/material": "^7.3.5",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.0",
     "autoprefixer": "^10.4.22",
+    "flowbite": "^4.0.1",
+    "flowbite-react": "^0.12.10",
     "framer-motion": "^12.23.24",
     "maath": "^0.10.8",
     "next": "15.5.6",

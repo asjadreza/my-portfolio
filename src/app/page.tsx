@@ -6,7 +6,8 @@ import { CheckIcon, InboxIcon } from "@heroicons/react/24/outline";
 import { ReactTyped } from "react-typed";
 import { FooterComponent } from "@/components/FooterComponent";
 import { Navbar } from "@/components/Navbar";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import ExperienceTimeline from "@/components/Experience";
+import Typography from "@mui/material/Typography";
 
 // --- Static data used in the page (projects, skills) ---
 const skills = [
@@ -167,83 +168,79 @@ export default function PortfolioPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Frontend Card */}
-          <div className="p-6 rounded-2xl border border-slate-700 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
+          <div className="p-6 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
             <h3 className="text-xl font-semibold mb-4 text-center text-slate-200">
               Frontend
             </h3>
 
             <div className="grid grid-cols-3 gap-3 place-items-center">
               <div className="flex flex-col items-center">
-                <img src="HTML5.svg" className="w-12 h-12" alt="HTML" />
+                <img src="HTML5.svg" className="w-9 h-9" alt="HTML" />
                 <p>HTML5</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="CSS3.svg" className="w-12 h-12" alt="CSS3" />
+                <img src="CSS3.svg" className="w-9 h-9" alt="CSS3" />
                 <p>CSS3</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="JavaScript.svg" className="w-12 h-12" alt="JS" />
+                <img src="JavaScript.svg" className="w-9 h-9" alt="JS" />
                 <p>Javascript</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="React.svg" className="w-12 h-12" alt="ReactJS" />
+                <img src="React.svg" className="w-9 h-9" alt="ReactJS" />
                 <p>React.js</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="next.js.png" className="w-12 h-12 " alt="Vue.js" />
+                <img src="next.js.png" className="w-9 h-9" alt="Vue.js" />
                 <p>Next.js</p>
               </div>
               <div className="flex flex-col items-center mt-2">
-                <img src="Vue.js.svg" className="w-10 h-10 " alt="VueJs" />
+                <img src="Vue.js.svg" className="w-9 h-9" alt="VueJs" />
                 <p>Vue js</p>
               </div>
             </div>
           </div>
 
           {/* Backend Card */}
-          <div className="p-6 rounded-2xl border border-slate-700 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
+          <div className="p-6 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
             <h3 className="text-xl font-semibold mb-4 text-center text-slate-200">
               Backend
             </h3>
 
             <div className="grid grid-cols-3 gap-3 place-items-center">
               <div className="flex flex-col items-center">
-                <img src="Node.js.svg" className="w-12 h-12 " alt="Node js" />
+                <img src="Node.js.svg" className="w-9 h-9" alt="Node js" />
                 <p>Node.js</p>
               </div>
               <div className="flex flex-col items-center">
                 <img
                   src="Express.svg"
-                  className="w-12 h-12 bg-slate-50 rounded-full p-2"
+                  className="w-9 h-9 bg-slate-50 rounded-full p-2"
                   alt="Express js"
                 />
                 <p>Express.js</p>
               </div>
               <div className="flex flex-col items-center">
-                <img
-                  src="PostgresSQL.svg"
-                  className="w-12 h-12 "
-                  alt="Postgres"
-                />
+                <img src="PostgresSQL.svg" className="w-9 h-9" alt="Postgres" />
                 <p>PostgresSQL</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="Postman.svg" className="w-12 h-12 " alt="Postman" />
+                <img src="Postman.svg" className="w-9 h-9" alt="Postman" />
                 <p>Postman</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="MongoDB.svg" className="w-12 h-12 " alt="Mongo DB" />
+                <img src="MongoDB.svg" className="w-9 h-9" alt="Mongo DB" />
                 <p>MongoDB</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="Python.svg" className="w-12 h-12 " alt="Python" />
+                <img src="Python.svg" className="w-9 h-9" alt="Python" />
                 <p>Python</p>
               </div>
             </div>
           </div>
 
           {/* Other Skills Card */}
-          <div className="p-6 rounded-2xl border border-slate-700 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
+          <div className="p-6 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
             <h3 className="text-xl font-semibold mb-4 text-center text-slate-200">
               Tools & Technologies
             </h3>
@@ -252,35 +249,35 @@ export default function PortfolioPage() {
               <div className="flex flex-col items-center">
                 <img
                   src="Langchain.svg"
-                  className="w-12 h-12 bg-slate-50 rounded-full p-2"
+                  className="w-9 h-9 bg-slate-50 rounded-full p-2"
                   alt="Langchain"
                 />
                 <p>Langchain</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="Docker.svg" className="w-12 h-12 " alt="Docker" />
+                <img src="Docker.svg" className="w-9 h-9" alt="Docker" />
                 <p>Docker</p>
               </div>
               <div className="flex flex-col items-center mt-2">
-                <img src="Azure.svg" className="w-10 h-10 " alt="Azure" />
+                <img src="Azure.svg" className="w-9 h-9" alt="Azure" />
                 <p>Azure</p>
               </div>
 
               <div className="flex flex-col items-center">
                 <img
                   src="Kubernetes.svg"
-                  className="w-12 h-12 "
+                  className="w-9 h-9"
                   alt="Kubernetes"
                 />
                 <p>Kubernetes</p>
               </div>
 
               <div className="flex flex-col items-center">
-                <img src="Redux.svg" className="w-12 h-12 " alt="Redux" />
+                <img src="Redux.svg" className="w-9 h-9" alt="Redux" />
                 <p>Redux</p>
               </div>
               <div className="flex flex-col items-center">
-                <img src="Sass.svg" className="w-12 h-12 " alt="Sass" />
+                <img src="Sass.svg" className="w-9 h-9" alt="Sass" />
                 <p>Sass</p>
               </div>
             </div>
@@ -289,7 +286,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* ---------- Projects section ---------- */}
-      <section id="projects" className="max-w-6xl mx-auto px-6 py-12">
+      {/* <section id="projects" className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-2xl font-semibold">Selected Projects</h2>
         <p className="text-slate-400 mt-2">
           A few projects that show my approach to UI, animation and performance.
@@ -338,50 +335,18 @@ export default function PortfolioPage() {
             );
           })}
         </motion.div>
-      </section>
+      </section> */}
 
-      {/* ---------- Experience ---------- */}
-      <section id="experience" className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold">Experience</h2>
-        <div className="mt-6 space-y-4">
-          {/* Example experience item */}
-          <article className="p-4 rounded-lg glass border border-white/6">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center">
-                P
-              </div>
-              <div>
-                <div className="text-sm font-medium">
-                  Frontend Developer — Ombrella
-                </div>
-                <div className="text-xs text-slate-400">Jan 2024 — Present</div>
-                <p className="text-slate-300 mt-2 text-sm">
-                  Worked on responsive Next.js apps, implemented cloudinary
-                  uploads and CI/CD optimisations.
-                </p>
-              </div>
-            </div>
-          </article>
+      <section id="experience" className="max-w-7xl mx-auto px-6 py-12">
+        <Typography
+          variant="h5"
+          component="h2"
+          sx={{ fontWeight: 600, mb: 4 }}
+        >
+          Experience
+        </Typography>
 
-          {/* Another example item */}
-          <article className="p-4 rounded-lg glass border border-white/6">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center">
-                F
-              </div>
-              <div>
-                <div className="text-sm font-medium">
-                  Frontend Engineer — Freelance
-                </div>
-                <div className="text-xs text-slate-400">2019 — 2023</div>
-                <p className="text-slate-300 mt-2 text-sm">
-                  Built interactive UIs for multiple startups with a focus on
-                  performance and animations.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
+        <ExperienceTimeline />
       </section>
 
       {/* ---------- Contact ---------- */}
