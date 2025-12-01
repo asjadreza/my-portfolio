@@ -233,10 +233,16 @@ export default function PortfolioPage() {
         <Typography
           variant="h5"
           component="h2"
-          sx={{ fontWeight: 600, mb: 4, fontFamily: "'Poppins', sans-serif" }}
+          sx={{ fontWeight: 600, mb: 4, fontFamily: "'Poppins', sans-serif", borderBottom: "1px solid white", display: "inline-block" }}
         >
           Experience
         </Typography>
+
+        {/* <span className="text-2xl font-semibold text-slate-100 border-b shrink-0">
+            Experience
+          </span> */}
+
+        {/* <div className="text-sm flex items-center font-medium border-b border-slate-500 -mt-3.5"></div> */}
 
         <ExperienceTimeline />
       </section>
