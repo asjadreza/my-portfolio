@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import { List, ListItem } from "@mui/material";
 
 import WorkIcon from "@mui/icons-material/Work";
-import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 
 export default function ExperienceTimeline() {
   return (
@@ -162,8 +161,6 @@ export default function ExperienceTimeline() {
           </List>
         </TimelineContent>
       </TimelineItem>
-
-
     </Timeline>
   );
 }

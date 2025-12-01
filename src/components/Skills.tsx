@@ -1,0 +1,156 @@
+import { useState } from "react";
+import { Typography } from "@mui/material";
+
+// Define a type for skills with optional bg property
+type Skill = {
+  name: string;
+  icon: string;
+  bg?: string;
+};
+
+const SkillsSection = () => {
+  const [activeTab, setActiveTab] = useState("frontend");
+
+  const frontendSkills: Skill[] = [
+    { name: "HTML5", icon: "HTML5.svg" },
+    { name: "CSS3", icon: "CSS3.svg" },
+    { name: "Javascript", icon: "JavaScript.svg" },
+    { name: "React.js", icon: "React.svg" },
+    { name: "Next.js", icon: "next.js.png" },
+    { name: "Vue.js", icon: "Vue.js.svg" },
+    { name: "Nuxt.js", icon: "Nuxt JS.svg" },
+    { name: "Bootstrap", icon: "Bootstrap.svg" },
+    { name: "Material UI", icon: "Material UI.svg" },
+    { name: "Redux", icon: "Redux.svg" },
+  ];
+
+  const backendSkills: Skill[] = [
+    { name: "Node.js", icon: "Node.js.svg" },
+    {
+      name: "Express.js",
+      icon: "Express.png",
+    },
+    { name: "PostgreSQL", icon: "PostgresSQL.svg" },
+    { name: "Postman", icon: "Postman.svg" },
+    { name: "MongoDB", icon: "MongoDB.svg" },
+    { name: "Python", icon: "Python.svg" },
+  ];
+
+  const otherSkills: Skill[] = [
+    {
+      name: "Langchain",
+      icon: "Langchain.svg",
+    },
+    { name: "Docker", icon: "Docker.svg" },
+    { name: "Azure", icon: "Azure.svg" },
+    { name: "Kubernetes", icon: "Kubernetes.svg" },
+    { name: "Redux", icon: "Redux.svg" },
+    { name: "Sass", icon: "Sass.svg" },
+  ];
+
+  const getActiveSkills = (): Skill[] => {
+    switch (activeTab) {
+      case "frontend":
+        return frontendSkills;
+      case "backend":
+        return backendSkills;
+      case "other":
+        return otherSkills;
+      default:
+        return frontendSkills;
+    }
+  };
+
+  const getTabTitle = (): string => {
+    switch (activeTab) {
+      case "frontend":
+        return "Frontend";
+      case "backend":
+        return "Backend";
+      case "other":
+        return "Tools & Technologies";
+      default:
+        return "Frontend";
+    }
+  };
+
+  return (
+    <div className="skills flex flex-col items-center justify-center mb-8">
+      <div className="w-full max-w-7xl mb-4">
+        <div className="text-sm flex items-center font-medium border-b border-slate-700">
+          <h2 className="text-2xl font-semibold text-slate-100 shrink-0">
+            Skills
+          </h2>
+          <div className="flex-1 flex justify-center">
+            <ul className="flex flex-wrap -mb-px">
+              <li className="me-2">
+                <button
+                  onClick={() => setActiveTab("frontend")}
+                  className={`inline-block p-4 rounded-t-lg border-b-2 transition-all duration-200 ${
+                    activeTab === "frontend"
+                      ? "text-slate-100 border-slate-100"
+                      : "text-slate-400 border-transparent hover:text-slate-300 hover:border-slate-300"
+                  }`}
+                >
+                  Frontend
+                </button>
+              </li>
+              <li className="me-2">
+                <button
+                  onClick={() => setActiveTab("backend")}
+                  className={`inline-block p-4 rounded-t-lg border-b-2 transition-all duration-200 ${
+                    activeTab === "backend"
+                      ? "text-slate-100 border-slate-100"
+                      : "text-slate-400 border-transparent hover:text-slate-300 hover:border-slate-300"
+                  }`}
+                >
+                  Backend
+                </button>
+              </li>
+              <li className="me-2">
+                <button
+                  onClick={() => setActiveTab("other")}
+                  className={`inline-block p-4 rounded-t-lg border-b-2 transition-all duration-200 ${
+                    activeTab === "other"
+                      ? "text-slate-100 border-slate-100"
+                      : "text-slate-400 border-transparent hover:text-slate-300 hover:border-slate-300"
+                  }`}
+                >
+                  Other Tech
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Skills Display - Simple horizontal layout */}
+      <div className="flex justify-start mt-8">
+        <div className="w-full max-w-7xl">
+          {/* Horizontal skills list */}
+          <div className="flex flex-wrap gap-10">
+            {getActiveSkills().map((skill, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center transform hover:scale-110 transition-transform duration-200"
+              >
+                <div className={`mb-3 ${skill.bg ? skill.bg : ""}`}>
+                  <img
+                    src={skill.icon}
+                    className="w-10 h-10"
+                    alt={skill.name}
+                  />
+                </div>
+                <p className="text-slate-300 text-center text-sm font-medium">
+                  {skill.name}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SkillsSection;

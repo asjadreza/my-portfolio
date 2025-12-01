@@ -8,6 +8,7 @@ import { FooterComponent } from "@/components/FooterComponent";
 import { Navbar } from "@/components/Navbar";
 import ExperienceTimeline from "@/components/Experience";
 import Typography from "@mui/material/Typography";
+import Skills from '@/components/Skills'
 
 // --- Static data used in the page (projects, skills) ---
 const skills = [
@@ -161,128 +162,19 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 mt-20">
-        <div className="skills flex items-center justify-center mb-5">
-          <h6 className="font-semibold">What Skills I Have</h6>
-        </div>
+      <section id="#skills" className="max-w-7xl mx-auto px-6 py-12">
+        {/* <div className="skills flex items-center justify-start">
+          <h5 className="font-semibold">What Skills I Have</h5>
+        </div> */}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Frontend Card */}
-          <div className="p-6 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
-            <h3 className="text-xl font-semibold mb-4 text-center text-slate-200">
-              Frontend
-            </h3>
-
-            <div className="grid grid-cols-3 gap-3 place-items-center">
-              <div className="flex flex-col items-center">
-                <img src="HTML5.svg" className="w-9 h-9" alt="HTML" />
-                <p>HTML5</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="CSS3.svg" className="w-9 h-9" alt="CSS3" />
-                <p>CSS3</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="JavaScript.svg" className="w-9 h-9" alt="JS" />
-                <p>Javascript</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="React.svg" className="w-9 h-9" alt="ReactJS" />
-                <p>React.js</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="next.js.png" className="w-9 h-9" alt="Vue.js" />
-                <p>Next.js</p>
-              </div>
-              <div className="flex flex-col items-center mt-2">
-                <img src="Vue.js.svg" className="w-9 h-9" alt="VueJs" />
-                <p>Vue js</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Backend Card */}
-          <div className="p-6 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
-            <h3 className="text-xl font-semibold mb-4 text-center text-slate-200">
-              Backend
-            </h3>
-
-            <div className="grid grid-cols-3 gap-3 place-items-center">
-              <div className="flex flex-col items-center">
-                <img src="Node.js.svg" className="w-9 h-9" alt="Node js" />
-                <p>Node.js</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img
-                  src="Express.svg"
-                  className="w-9 h-9 bg-slate-50 rounded-full p-2"
-                  alt="Express js"
-                />
-                <p>Express.js</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="PostgresSQL.svg" className="w-9 h-9" alt="Postgres" />
-                <p>PostgresSQL</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="Postman.svg" className="w-9 h-9" alt="Postman" />
-                <p>Postman</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="MongoDB.svg" className="w-9 h-9" alt="Mongo DB" />
-                <p>MongoDB</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="Python.svg" className="w-9 h-9" alt="Python" />
-                <p>Python</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Other Skills Card */}
-          <div className="p-6 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
-            <h3 className="text-xl font-semibold mb-4 text-center text-slate-200">
-              Tools & Technologies
-            </h3>
-
-            <div className="grid grid-cols-3 gap-4 place-items-center">
-              <div className="flex flex-col items-center">
-                <img
-                  src="Langchain.svg"
-                  className="w-9 h-9 bg-slate-50 rounded-full p-2"
-                  alt="Langchain"
-                />
-                <p>Langchain</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="Docker.svg" className="w-9 h-9" alt="Docker" />
-                <p>Docker</p>
-              </div>
-              <div className="flex flex-col items-center mt-2">
-                <img src="Azure.svg" className="w-9 h-9" alt="Azure" />
-                <p>Azure</p>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <img
-                  src="Kubernetes.svg"
-                  className="w-9 h-9"
-                  alt="Kubernetes"
-                />
-                <p>Kubernetes</p>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <img src="Redux.svg" className="w-9 h-9" alt="Redux" />
-                <p>Redux</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src="Sass.svg" className="w-9 h-9" alt="Sass" />
-                <p>Sass</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* <Typography
+          variant="h5"
+          component="h2"
+          sx={{ fontWeight: 600, mb: 4, fontFamily: "'Poppins', sans-serif" }}
+        >
+          Skills
+        </Typography> */}
+        <Skills />
       </section>
 
       {/* ---------- Projects section ---------- */}
@@ -341,7 +233,7 @@ export default function PortfolioPage() {
         <Typography
           variant="h5"
           component="h2"
-          sx={{ fontWeight: 600, mb: 4 }}
+          sx={{ fontWeight: 600, mb: 4, fontFamily: "'Poppins', sans-serif" }}
         >
           Experience
         </Typography>
