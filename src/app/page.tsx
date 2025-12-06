@@ -14,9 +14,11 @@ const projects = [
   {
     id: 1,
     title: "Beatdrop",
-    desc: "Real-time analytics dashboard with dynamic charts and filters.",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium magna a mauris fermentum, non elementum orci feugiat. Suspendisse potenti. Integer vulputate, enim vel volutpat bibendum,massa dolor ultricies est, nec tempus sem orci at ligula.",
+
     github: "http://github.com/asjadreza/fe-beatdrop-prod",
     demo: "https://fe-beatdrop-prod.vercel.app/",
+    img: "/thumbnail/coding.jpg",
     tech: ["React", "D3", "Node"],
   },
   {
@@ -25,6 +27,7 @@ const projects = [
     desc: "Pixel-perfect components, accessible, themeable.",
     github: "https://github.com/asjadreza/WeatherWebApp",
     demo: "https://weather-web-app-32ou.onrender.com/",
+    img: "/thumbnail/coding.jpg",
     tech: ["Next.js", "Tailwind"],
   },
   {
@@ -33,6 +36,7 @@ const projects = [
     desc: "Product viewer with interactive rotation and annotations.",
     github: "https://github.com/asjadreza/todo-app",
     demo: "https://todo-app-a6r3.onrender.com/",
+    img: "/thumbnail/coding.jpg",
     tech: ["React.js", "JSX", "useState", "hooks"],
   },
   {
@@ -41,6 +45,7 @@ const projects = [
     desc: "Product viewer with interactive rotation and annotations.",
     github: "https://github.com/asjadreza/Snake-Game/",
     demo: "https://asjadreza.github.io/Snake-Game/",
+    img: "/thumbnail/coding.jpg",
     tech: ["HTML", "CSS", "JavaScript"],
   },
   {
@@ -49,6 +54,7 @@ const projects = [
     desc: "Product viewer with interactive rotation and annotations.",
     github: "https://github.com/asjadreza/tic-tac-toe",
     demo: "https://asjadreza.github.io/tic-tac-toe/",
+    img: "/thumbnail/coding.jpg",
     tech: ["HTML", "CSS", "JavaScript"],
   },
   {
@@ -57,339 +63,17 @@ const projects = [
     desc: "Product viewer with interactive rotation and annotations.",
     github: "https://github.com/asjadreza/Simon_game",
     demo: "https://asjadreza.github.io/Simon_game/",
+    img: "/thumbnail/coding.jpg",
     tech: ["HTML", "CSS", "JavaScript"],
   },
 ];
 
 export default function PortfolioPage() {
-  // const sectionRef = useRef<HTMLElement | null>(null);
-  // const [activeIndex, setActiveIndex] = useState(0);
-  // const [sectionInView, setSectionInView] = useState(false);
-  // const [isAnimating, setIsAnimating] = useState(false);
-
-  // // Detect when the whole Projects section is in view
-  // useEffect(() => {
-  //   const ref = sectionRef.current;
-  //   if (!ref) return;
-
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       setSectionInView(entry.isIntersecting);
-  //     },
-  //     { threshold: 0.3 }
-  //   );
-
-  //   observer.observe(ref);
-
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // // Prevent default page scroll when in projects section
-  // useEffect(() => {
-  //   const handleWheelGlobal = (e: WheelEvent) => {
-  //     if (!sectionInView) return;
-
-  //     // If we're at the first project and scrolling up, or
-  //     // at the last project and scrolling down, prevent default
-  //     if (activeIndex === 0 && e.deltaY < 0) {
-  //       // At first project and scrolling up - allow normal scroll
-  //       return;
-  //     } else if (activeIndex === projects.length - 1 && e.deltaY > 0) {
-  //       // At last project and scrolling down - allow normal scroll
-  //       return;
-  //     } else if (sectionInView) {
-  //       // Otherwise, prevent the default scroll in this section
-  //       e.preventDefault();
-  //     }
-  //   };
-
-  //   const sectionElement = sectionRef.current;
-  //   if (sectionElement) {
-  //     sectionElement.addEventListener("wheel", handleWheelGlobal, {
-  //       passive: false,
-  //     });
-  //   }
-
-  //   return () => {
-  //     if (sectionElement) {
-  //       sectionElement.removeEventListener("wheel", handleWheelGlobal);
-  //     }
-  //   };
-  // }, [sectionInView, activeIndex]);
-
-  // // Handle scroll to move between projects
-  // const handleWheel = (e: React.WheelEvent<HTMLElement>) => {
-  //   if (!sectionInView) return;
-  //   if (isAnimating) return;
-
-  //   const delta = e.deltaY;
-
-  //   if (Math.abs(delta) < 15) return;
-
-  //   // Check if we should handle the scroll or let it pass through
-  //   if (activeIndex === 0 && delta < 0) {
-  //     // At first project and scrolling up - let it go to previous section
-  //     return;
-  //   } else if (activeIndex === projects.length - 1 && delta > 0) {
-  //     // At last project and scrolling down - let it go to next section
-  //     return;
-  //   }
-
-  //   // Block default page scroll while switching cards
-  //   e.preventDefault();
-  //   e.stopPropagation();
-
-  //   setIsAnimating(true);
-
-  //   setActiveIndex((prev) => {
-  //     if (delta > 0) {
-  //       // Scroll down → next
-  //       return prev < projects.length - 1 ? prev + 1 : prev;
-  //     } else {
-  //       // Scroll up → previous
-  //       return prev > 0 ? prev - 1 : prev;
-  //     }
-  //   });
-
-  //   setTimeout(() => {
-  //     setIsAnimating(false);
-  //   }, 650);
-  // };
-
-  // // Detect when the whole Projects section is in view
-  // useEffect(() => {
-  //   const ref = sectionRef.current;
-  //   if (!ref) return;
-
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       setSectionInView(entry.isIntersecting);
-  //     },
-  //     { threshold: 0.3 }
-  //   );
-
-  //   observer.observe(ref);
-
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // // Handle wheel events globally when section is in view
-  // useEffect(() => {
-  //   const handleWheelGlobal = (e: WheelEvent) => {
-  //     if (!sectionInView) return;
-  //     if (isAnimating) return;
-
-  //     const delta = e.deltaY;
-
-  //     if (Math.abs(delta) < 15) return;
-
-  //     // Check if we're at the boundaries
-  //     if (activeIndex === 0 && delta < 0) {
-  //       // At first project and scrolling up - let it go to previous section
-  //       return;
-  //     } else if (activeIndex === projects.length - 1 && delta > 0) {
-  //       // At last project and scrolling down - let it go to next section
-  //       return;
-  //     }
-
-  //     // Prevent default scroll behavior when cycling through projects
-  //     e.preventDefault();
-  //     e.stopPropagation();
-
-  //     setIsAnimating(true);
-
-  //     setActiveIndex((prev) => {
-  //       if (delta > 0) {
-  //         // Scroll down → next
-  //         return prev < projects.length - 1 ? prev + 1 : prev;
-  //       } else {
-  //         // Scroll up → previous
-  //         return prev > 0 ? prev - 1 : prev;
-  //       }
-  //     });
-
-  //     setTimeout(() => {
-  //       setIsAnimating(false);
-  //     }, 650);
-  //   };
-
-  //   // Add event listener to the window for global scroll capture
-  //   window.addEventListener("wheel", handleWheelGlobal, { passive: false });
-
-  //   return () => {
-  //     window.removeEventListener("wheel", handleWheelGlobal);
-  //   };
-  // }, [sectionInView, activeIndex, isAnimating]);
-
-  // // Optional: Add keyboard navigation support
-  // useEffect(() => {
-  //   const handleKeyDown = (e: KeyboardEvent) => {
-  //     if (!sectionInView) return;
-  //     if (isAnimating) return;
-
-  //     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-  //       e.preventDefault();
-  //       setActiveIndex((prev) => {
-  //         if (prev < projects.length - 1) {
-  //           setIsAnimating(true);
-  //           setTimeout(() => setIsAnimating(false), 650);
-  //           return prev + 1;
-  //         }
-  //         return prev;
-  //       });
-  //     } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-  //       e.preventDefault();
-  //       setActiveIndex((prev) => {
-  //         if (prev > 0) {
-  //           setIsAnimating(true);
-  //           setTimeout(() => setIsAnimating(false), 650);
-  //           return prev - 1;
-  //         }
-  //         return prev;
-  //       });
-  //     }
-  //   };
-
-  //   if (sectionInView) {
-  //     window.addEventListener("keydown", handleKeyDown);
-  //   }
-
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, [sectionInView, isAnimating]);
-
-
-
-  // const sectionRef = useRef<HTMLElement | null>(null);
-  // const [activeIndex, setActiveIndex] = useState(0);
-  // const [sectionInView, setSectionInView] = useState(false);
-  // const [isAnimating, setIsAnimating] = useState(false);
-
-  // // 1. Detect In-View AND Direction of Entry
-  // useEffect(() => {
-  //   const ref = sectionRef.current;
-  //   if (!ref) return;
-
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       setSectionInView(entry.isIntersecting);
-
-  //       if (entry.isIntersecting) {
-  //         // Logic: Check the bounding client rect relative to the viewport
-  //         // If boundingClientRect.top is negative, it means the top of the element 
-  //         // is above the viewport, so we are scrolling UP from the bottom.
-  //         if (entry.boundingClientRect.top < 0) {
-  //           setActiveIndex(projects.length - 1);
-  //         } else {
-  //           // Otherwise, we are scrolling DOWN from the top.
-  //           setActiveIndex(0);
-  //         }
-  //       }
-  //     },
-  //     { threshold: 0.4 } // Increased slightly to ensure user is "committed" to the section
-  //   );
-
-  //   observer.observe(ref);
-
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // // 2. Handle Wheel Events
-  // useEffect(() => {
-  //   const handleWheelGlobal = (e: WheelEvent) => {
-  //     if (!sectionInView) return;
-
-  //     // Small threshold to ignore tiny trackpad jitters
-  //     if (Math.abs(e.deltaY) < 10) return;
-
-  //     const delta = e.deltaY;
-      
-  //     // BOUNDARY CHECK:
-  //     // If at FIRST project and scrolling UP -> Let browser handle it (leave section)
-  //     if (activeIndex === 0 && delta < 0) return;
-      
-  //     // If at LAST project and scrolling DOWN -> Let browser handle it (leave section)
-  //     if (activeIndex === projects.length - 1 && delta > 0) return;
-
-  //     // If we are here, we are "locked" in the project cycle.
-  //     e.preventDefault();
-  //     e.stopPropagation();
-
-  //     // Optional: Snap section to center if the user tries to scroll "inside" it
-  //     // This prevents the section from being half-cut-off while cycling projects
-  //     if (sectionRef.current) {
-  //       sectionRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-  //     }
-
-  //     if (isAnimating) return;
-
-  //     setIsAnimating(true);
-
-  //     setActiveIndex((prev) => {
-  //       if (delta > 0) {
-  //         // Scroll Down -> Next Project
-  //         return Math.min(prev + 1, projects.length - 1);
-  //       } else {
-  //         // Scroll Up -> Previous Project
-  //         return Math.max(prev - 1, 0);
-  //       }
-  //     });
-
-  //     // Animation cooldown
-  //     setTimeout(() => {
-  //       setIsAnimating(false);
-  //     }, 650);
-  //   };
-
-  //   window.addEventListener("wheel", handleWheelGlobal, { passive: false });
-
-  //   return () => {
-  //     window.removeEventListener("wheel", handleWheelGlobal);
-  //   };
-  // }, [sectionInView, activeIndex, isAnimating]);
-
-  // // 3. Keyboard Navigation (Unchanged mostly, but added boundaries)
-  // useEffect(() => {
-  //   const handleKeyDown = (e: KeyboardEvent) => {
-  //     if (!sectionInView) return;
-  //     if (isAnimating) return;
-
-  //     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-  //       if (activeIndex < projects.length - 1) {
-  //         e.preventDefault(); // Only prevent default if we have somewhere to go
-  //         setIsAnimating(true);
-  //         setActiveIndex((prev) => prev + 1);
-  //         setTimeout(() => setIsAnimating(false), 650);
-  //       }
-  //     } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-  //       if (activeIndex > 0) {
-  //         e.preventDefault();
-  //         setIsAnimating(true);
-  //         setActiveIndex((prev) => prev - 1);
-  //         setTimeout(() => setIsAnimating(false), 650);
-  //       }
-  //     }
-  //   };
-
-  //   if (sectionInView) {
-  //     window.addEventListener("keydown", handleKeyDown);
-  //   }
-
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, [sectionInView, isAnimating, activeIndex]);
-
-
-
-
-
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [sectionInView, setSectionInView] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  
+
   // NEW: Ref to track cumulative scroll distance for trackpads
   const scrollAccumulator = useRef(0);
 
@@ -428,7 +112,7 @@ export default function PortfolioPage() {
       // If at FIRST project and scrolling UP -> Let browser handle it (exit section)
       if (activeIndex === 0 && delta < 0) {
         // Important: Reset accumulator so we don't accidentally trigger later
-        scrollAccumulator.current = 0; 
+        scrollAccumulator.current = 0;
         return;
       }
 
@@ -443,7 +127,10 @@ export default function PortfolioPage() {
       e.stopPropagation();
 
       if (sectionRef.current) {
-        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+        sectionRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
       }
 
       if (isAnimating) return;
@@ -453,15 +140,15 @@ export default function PortfolioPage() {
       // This absorbs the small, rapid events from trackpads.
       scrollAccumulator.current += delta;
 
-      // Threshold: 60px is a sweet spot. 
+      // Threshold: 60px is a sweet spot.
       // A standard mouse wheel 'click' is usually ~100px (triggers instantly).
-      // A trackpad swipe is composed of many ~4px events. 
+      // A trackpad swipe is composed of many ~4px events.
       const SCROLL_THRESHOLD = 40;
 
       // Only trigger if we've accumulated enough scroll distance
       if (Math.abs(scrollAccumulator.current) > SCROLL_THRESHOLD) {
         setIsAnimating(true);
-        
+
         // Determine direction based on the accumulated value, not just the single event
         const direction = scrollAccumulator.current > 0 ? 1 : -1;
 
@@ -527,8 +214,6 @@ export default function PortfolioPage() {
     };
   }, [sectionInView, isAnimating, activeIndex]);
 
-
-
   return (
     <main className="min-h-screen bg-[url('/looper.png')] bg-[#111]  bg-no-repeat">
       <Navbar />
@@ -585,14 +270,6 @@ export default function PortfolioPage() {
             and open to new opportunities.
           </motion.p>
           <div className="mt-6 flex items-center justify-center flex-wrap gap-3">
-            {/* <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-linear-to-r from-purple-600 to-indigo-500 shadow-md text-white 
-               transition-transform duration-200 hover:scale-105 hover:shadow-lg"
-            >
-              View Projects
-            </a> */}
-
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-100 text-slate-200
@@ -622,91 +299,121 @@ export default function PortfolioPage() {
         >
           Experience
         </Typography>
-
-        {/* <span className="text-2xl font-semibold text-slate-100 border-b shrink-0">
-            Experience
-          </span> */}
-
-        {/* <div className="text-sm flex items-center font-medium border-b border-slate-500 -mt-3.5"></div> */}
-
         <ExperienceTimeline />
       </section>
+      <section
+        id="projects"
+        ref={sectionRef}
+        className="max-w-7xl mx-auto px-6 py-12 scroll-mt-10"
+      >
+        <Typography
+          variant="h5"
+          component="h2"
+          sx={{
+            fontWeight: 600,
+            mb: 4,
+            fontFamily: "'Poppins', sans-serif",
+            borderBottom: "1px solid white",
+            display: "inline-block",
+          }}
+        >
+          Projects
+        </Typography>
 
-    <section
-      id="projects"
-      ref={sectionRef}
-      className="max-w-5xl mx-auto px-6 py-16 flex items-center justify-center scroll-mt-10"
-    >
-      <div className="w-full max-w-3xl relative h-[260px] md:h-[300px]">
-        {projects.map((p, index) => {
-          const isActive = index === activeIndex;
-          const isBefore = index < activeIndex;
+        <div className="relative h-[260px] md:h-[300px] mx-8">
+          {projects.map((p, index) => {
+            const isPrimary = index === activeIndex;
+            const isSecondary = index === activeIndex + 1;
+            const isBefore = index < activeIndex;
+            const isAfter = index > activeIndex + 1;
 
-          return (
-            <a
-              key={p.id}
-              href={p.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`
-                group absolute inset-0 glass rounded-xl border border-white/10 shadow-md
-                p-6 md:p-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-                transform
-                ${
-                  isActive
-                    ? "opacity-100 translate-x-0 pointer-events-auto z-10"
-                    : isBefore
-                    ? "opacity-0 -translate-x-1/3 pointer-events-none z-0"
-                    : "opacity-0 translate-x-1/3 pointer-events-none z-0"
-                }
-              `}
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-semibold group-hover:text-blue-300 transition-colors">
-                    {p.title}
-                  </h3>
-                  <div className="text-sm text-slate-400 mt-1">UI / Frontend</div>
+            const isVisible = isPrimary || isSecondary;
+
+            // Position: left card (primary) & right card (secondary) on desktop
+            let positionClasses = "";
+            if (isSecondary) {
+              // show second card only on md+ so mobile still looks clean
+              positionClasses = "hidden md:block right-0 md:w-[48%]";
+            } else if (isPrimary || isBefore) {
+              positionClasses = "left-0 w-full md:w-[48%]";
+            } else {
+              positionClasses = "right-0 w-full md:w-[48%]";
+            }
+
+            // Animation state (similar feel to your old isActive/isBefore logic)
+            let stateClasses = "";
+            if (isVisible) {
+              stateClasses =
+                "opacity-100 translate-x-0 pointer-events-auto z-10";
+            } else if (isBefore) {
+              stateClasses =
+                "opacity-0 -translate-x-1/3 pointer-events-none z-0";
+            } else if (isAfter) {
+              stateClasses =
+                "opacity-0 translate-x-1/3 pointer-events-none z-0";
+            }
+
+            return (
+              <a
+                key={p.id}
+                href={p.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`
+            group absolute top-0 bottom-0 glass rounded-xl border border-white/10 shadow-md
+            p-6 md:p-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+            transform ${positionClasses} ${stateClasses}
+          `}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-semibold group-hover:text-blue-300 transition-colors">
+                      {p.title}
+                    </h3>
+                    <div className="text-sm text-slate-400 mt-1">
+                      UI / Frontend
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 text-sm">
+                    <span className="text-slate-400">Code</span>
+                    <span className="text-blue-400">Live Demo →</span>
+                  </div>
                 </div>
 
-                <div className="flex gap-4 text-sm">
-                  <span className="text-slate-400">Code</span>
-                  <span className="text-blue-400">Live Demo →</span>
+                <p className="text-slate-300 mt-4 text-sm md:text-base group-hover:text-slate-200 transition-colors">
+                  {p.desc}
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs px-3 py-1 rounded-md bg-white/5 group-hover:bg-white/10 transition-colors"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
+              </a>
+            );
+          })}
+
+          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-xs text-slate-500 text-center w-full">
+            <div>
+              Project {activeIndex + 1} of {projects.length}
+            </div>
+            {activeIndex === 0 && (
+              <div className="mt-1 opacity-50">
+                Scroll Up to previous section
               </div>
-
-              <p className="text-slate-300 mt-4 text-sm md:text-base group-hover:text-slate-200 transition-colors">
-                {p.desc}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {p.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-3 py-1 rounded-md bg-white/5 group-hover:bg-white/10 transition-colors"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </a>
-          );
-        })}
-
-        <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-xs text-slate-500 text-center w-full">
-          <div>
-            Project {activeIndex + 1} of {projects.length}
+            )}
+            {activeIndex === projects.length - 1 && (
+              <div className="mt-1 opacity-50">Scroll Down to next section</div>
+            )}
           </div>
-          {activeIndex === 0 && (
-            <div className="mt-1 opacity-50">Scroll Up to previous section</div>
-          )}
-          {activeIndex === projects.length - 1 && (
-            <div className="mt-1 opacity-50">Scroll Down to next section</div>
-          )}
         </div>
-      </div>
-    </section>
-
+      </section>
 
       {/* ---------- Contact ---------- */}
       <section id="contact" className="max-w-6xl mx-auto px-6 py-12">
