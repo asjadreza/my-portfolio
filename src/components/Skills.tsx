@@ -77,16 +77,17 @@ const SkillsSection = () => {
   return (
     <div className="skills flex flex-col items-center justify-center mb-8">
       <div className="w-full max-w-7xl mb-4">
-        <div className="text-sm flex items-center font-medium border-slate-500">
-          <h2 className="text-2xl font-semibold text-slate-100 border-b shrink-0">
+        <div className="text-sm flex md:flex-row flex-col items-start font-medium border-slate-500">
+          {/* <h2 className="text-2xl font-semibold text-slate-100 border-b shrink-0"> */}
+          <h2 className="text-[20px] md:text-2xl font-semibold text-slate-100 border-b shrink-0">
             Skills
           </h2>
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex mt-4 md:mt-0 justify-center">
             <ul className="flex flex-wrap -mb-px">
               <li className="me-2">
                 <button
                   onClick={() => setActiveTab("frontend")}
-                  className={`inline-block p-4 cursor-pointer rounded-t-lg border-b-2 transition-all duration-200 ${
+                  className={`md:text-[14px] sm:text-[12px] text-[12px] inline-block p-4 cursor-pointer rounded-t-lg border-b-2 transition-all duration-200 ${
                     activeTab === "frontend"
                       ? "text-slate-50 border-slate-50"
                       : "text-slate-300 border-transparent hover:text-slate-300 hover:border-slate-300"
@@ -94,11 +95,13 @@ const SkillsSection = () => {
                 >
                   Frontend
                 </button>
+
+               
               </li>
               <li className="me-2">
                 <button
                   onClick={() => setActiveTab("backend")}
-                  className={`inline-block p-4 cursor-pointer rounded-t-lg border-b-2 transition-all duration-200 ${
+                  className={`md:text-[14px] sm:text-[12px] text-[12px] inline-block p-4 cursor-pointer rounded-t-lg border-b-2 transition-all duration-200 ${
                     activeTab === "backend"
                       ? "text-slate-50 border-slate-50"
                       : "text-slate-300 border-transparent hover:text-slate-300 hover:border-slate-300"
@@ -110,7 +113,7 @@ const SkillsSection = () => {
               <li className="me-2">
                 <button
                   onClick={() => setActiveTab("other")}
-                  className={`inline-block p-4 cursor-pointer rounded-t-lg border-b-2 transition-all duration-200 ${
+                  className={`md:text-[14px] sm:text-[12px] text-[12px] inline-block p-4 cursor-pointer rounded-t-lg border-b-2 transition-all duration-200 ${
                     activeTab === "other"
                       ? "text-slate-50 border-slate-50"
                       : "text-slate-300 border-transparent hover:text-slate-300 hover:border-slate-300"
@@ -128,7 +131,7 @@ const SkillsSection = () => {
       <div className="flex justify-start mt-8">
         <div className="w-full max-w-7xl">
           {/* Horizontal skills list */}
-          <div className="flex flex-wrap gap-10">
+          <div className="flex justify-center md:justify-start flex-wrap gap-10">
             {getActiveSkills().map((skill, index) => (
               <div
                 key={index}

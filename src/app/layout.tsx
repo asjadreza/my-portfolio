@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 import StarsCanvas from "@/components/main/StarsBackground";
 
 const poppins = Poppins({
@@ -26,6 +28,14 @@ export default function RootLayout({
       >
         <StarsCanvas />
         {children}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          theme="dark"        
+          closeOnClick
+          pauseOnHover
+          draggable
+        />
       </body>
     </html>
   );

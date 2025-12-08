@@ -2,47 +2,51 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { CheckIcon, InboxIcon } from "@heroicons/react/24/outline";
+import { CheckIcon, InboxIcon, TvIcon } from "@heroicons/react/24/outline";
 import { ReactTyped } from "react-typed";
 import { FooterComponent } from "@/components/FooterComponent";
 import { Navbar } from "@/components/Navbar";
 import ExperienceTimeline from "@/components/Experience";
 import Typography from "@mui/material/Typography";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LiveTvIcon from "@mui/icons-material/LiveTv";
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import Skills from "@/components/Skills";
+import ContactComponent from "@/components/Contact";
 
 const projects = [
   {
     id: 1,
     title: "Beatdrop",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium magna a mauris fermentum, non elementum orci feugiat. Suspendisse potenti. Integer vulputate, enim vel volutpat bibendum,massa dolor ultricies est, nec tempus sem orci at ligula.",
-
+    desc: "Beatdrop is a full-stack music streaming platform with Next.js, TypeScript,and React, featuring secure JWT authentication, real-time audio playback,and cloud-based media management through Cloudinary integration.",
     github: "http://github.com/asjadreza/fe-beatdrop-prod",
     demo: "https://fe-beatdrop-prod.vercel.app/",
     img: "/thumbnail/coding.jpg",
-    tech: ["React", "D3", "Node"],
+    tech: ["React", "Next.js", "Node.js", "Express.js", "Postgresql", "prisma"],
   },
   {
     id: 2,
     title: "Weather-Web-App",
-    desc: "Pixel-perfect components, accessible, themeable.",
+    desc: "A simple, pleasant-looking web application built with HTML, CSS, and JavaScript that displays real-time weather information for a given location. It offers a straightforward UI to fetch and show weather data, making it easy for users to check current conditions in their city.",
     github: "https://github.com/asjadreza/WeatherWebApp",
     demo: "https://weather-web-app-32ou.onrender.com/",
     img: "/thumbnail/coding.jpg",
-    tech: ["Next.js", "Tailwind"],
+    tech: ["HTML5", "CSS3", "JavaScript", "Weather API"],
   },
   {
     id: 3,
     title: "Todo Web App",
-    desc: "Product viewer with interactive rotation and annotations.",
+    desc: "A simple web-based task manager built with Node.js and HTML/CSS/JS that lets users create a to-do list: add tasks, mark them complete, and remove tasks as needed. It provides a clean, minimalistic UI to help users stay organized and keep track of their daily tasks.",
     github: "https://github.com/asjadreza/todo-app",
     demo: "https://todo-app-a6r3.onrender.com/",
     img: "/thumbnail/coding.jpg",
-    tech: ["React.js", "JSX", "useState", "hooks"],
+    tech: ["EJS", "Express.js", "JavaScript", "HTML", "CSS"],
   },
   {
     id: 4,
     title: "Snake-Game",
-    desc: "Product viewer with interactive rotation and annotations.",
+    desc: "A simple browser-based implementation of the classic Snake game using HTML, CSS, and JavaScript. It offers the core Snake gameplay: control a growing snake to eat food while avoiding collisions, all rendered in basic web technologies.",
     github: "https://github.com/asjadreza/Snake-Game/",
     demo: "https://asjadreza.github.io/Snake-Game/",
     img: "/thumbnail/coding.jpg",
@@ -51,7 +55,7 @@ const projects = [
   {
     id: 5,
     title: "Tic-Tac-Toe",
-    desc: "Product viewer with interactive rotation and annotations.",
+    desc: "Simple browser-based Tic Tac Toe built with HTML, CSS, and vanilla JavaScript.Click to place X/O, automatic win detection with highlighted winning squares and a Restart button.",
     github: "https://github.com/asjadreza/tic-tac-toe",
     demo: "https://asjadreza.github.io/tic-tac-toe/",
     img: "/thumbnail/coding.jpg",
@@ -60,7 +64,7 @@ const projects = [
   {
     id: 6,
     title: "Simon game",
-    desc: "Product viewer with interactive rotation and annotations.",
+    desc: "Simon Game is a web-based memory game that challenges players to repeat increasingly complex sequences of colors and sounds. Built with HTML, CSS, and JavaScript, it offers an interactive and fun way to test and improve your memory skills.",
     github: "https://github.com/asjadreza/Simon_game",
     demo: "https://asjadreza.github.io/Simon_game/",
     img: "/thumbnail/coding.jpg",
@@ -136,7 +140,7 @@ export default function PortfolioPage() {
       if (isAnimating) return;
 
       // --- LOGIC CHANGE START ---
-      // Instead of checking delta directly, add to our accumulator.
+      // Instead of checking delta directly, add to our accumulator.https://chatgpt.com/g/g-drpwu8nYs-ai-signature-generator
       // This absorbs the small, rapid events from trackpads.
       scrollAccumulator.current += delta;
 
@@ -262,7 +266,7 @@ export default function PortfolioPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-slate-100 text-center "
+            className="mt-4 text-slate-200 text-center text-sm sm:text-base text"
           >
             Results-oriented Software Developer with 2 years of experience
             building responsive, high-performance web applications. Skilled in
@@ -273,7 +277,7 @@ export default function PortfolioPage() {
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-100 text-slate-200
-               transition-transform duration-200 hover:scale-105 hover:bg-slate-100 hover:text-slate-950"
+               transition-transform duration-200 hover:scale-105 hover:bg-slate-100 hover:text-slate-950 text-sm sm:text-base text"
             >
               Contact Me
             </a>
@@ -286,41 +290,28 @@ export default function PortfolioPage() {
       </section>
 
       <section id="experience" className="max-w-7xl mx-auto px-6 py-12">
-        <Typography
-          variant="h5"
-          component="h2"
-          sx={{
-            fontWeight: 600,
-            mb: 4,
-            fontFamily: "'Poppins', sans-serif",
-            borderBottom: "1px solid white",
-            display: "inline-block",
-          }}
+        <h2
+          className="text-[20px] md:text-2xl  font-semibold mb-5"
+          style={{ borderBottom: "1px solid white", display: "inline-block" }}
         >
           Experience
-        </Typography>
+        </h2>
         <ExperienceTimeline />
       </section>
-      <section
+
+      {/* <section
         id="projects"
         ref={sectionRef}
         className="max-w-7xl mx-auto px-6 py-12 scroll-mt-10"
       >
-        <Typography
-          variant="h5"
-          component="h2"
-          sx={{
-            fontWeight: 600,
-            mb: 4,
-            fontFamily: "'Poppins', sans-serif",
-            borderBottom: "1px solid white",
-            display: "inline-block",
-          }}
+        <h2
+          className="text-[20px] md:text-2xl  font-semibold mb-8"
+          style={{ borderBottom: "1px solid white", display: "inline-block" }}
         >
           Projects
-        </Typography>
+        </h2>
 
-        <div className="relative h-[260px] md:h-[300px] mx-8">
+        <div className="relative h-[260px] md:h-[300px] mx-3">
           {projects.map((p, index) => {
             const isPrimary = index === activeIndex;
             const isSecondary = index === activeIndex + 1;
@@ -354,20 +345,21 @@ export default function PortfolioPage() {
             }
 
             return (
-              <a
+              <div
                 key={p.id}
-                href={p.demo}
-                target="_blank"
                 rel="noopener noreferrer"
                 className={`
-            group absolute top-0 bottom-0 glass rounded-xl border border-white/10 shadow-md
-            p-6 md:p-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-            transform ${positionClasses} ${stateClasses}
-          `}
+                group absolute top-0 bottom-0 glass rounded-xl border
+                border-white/10
+                shadow-[0_0_10px_rgba(255,255,255,0.05),0_0_20px_rgba(255,255,255,0.1)]
+                hover:shadow-[0_0_15px_rgba(255,255,255,0.1),0_0_30px_rgba(255,255,255,0.15)]
+                p-6 md:p-8 transition-all duration-300
+                transform ${positionClasses} ${stateClasses}
+              `}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
-                    <h3 className="text-xl font-semibold group-hover:text-blue-300 transition-colors">
+                    <h3 className="text-xl font-semibold transition-colors">
                       {p.title}
                     </h3>
                     <div className="text-sm text-slate-400 mt-1">
@@ -376,12 +368,44 @@ export default function PortfolioPage() {
                   </div>
 
                   <div className="flex gap-4 text-sm">
-                    <span className="text-slate-400">Code</span>
-                    <span className="text-blue-400">Live Demo →</span>
+                    <span
+                      onClick={() => window.open(p.github, "_blank")}
+                      className="text-slate-400 cursor-pointer"
+                    >
+                      <GitHubIcon
+                        sx={{
+                          fontSize: 24,
+                          color: "#8E9EB6",
+                          cursor: "pointer",
+                          "&:hover": {
+                            color: "#fff",
+                            transform: "scale(1.1)",
+                          },
+                          transition: "all 0.3s ease",
+                        }}
+                      />
+                    </span>
+                    <span
+                      onClick={() => window.open(p.demo, "_blank")}
+                      className="text-blue-400 cursor-pointer"
+                    >
+                      <LiveTvIcon
+                        sx={{
+                          fontSize: 24,
+                          color: "#8E9EB6",
+                          cursor: "pointer",
+                          "&:hover": {
+                            color: "#fff",
+                            transform: "scale(1.1)",
+                          },
+                          transition: "all 0.3s ease",
+                        }}
+                      />
+                    </span>
                   </div>
                 </div>
 
-                <p className="text-slate-300 mt-4 text-sm md:text-base group-hover:text-slate-200 transition-colors">
+                <p className="text-slate-300 mt-4 hover:text-slate-200 transition-colors">
                   {p.desc}
                 </p>
 
@@ -395,7 +419,7 @@ export default function PortfolioPage() {
                     </span>
                   ))}
                 </div>
-              </a>
+              </div>
             );
           })}
 
@@ -413,94 +437,179 @@ export default function PortfolioPage() {
             )}
           </div>
         </div>
+      </section> */}
+
+      <section
+        id="projects"
+        ref={sectionRef}
+        className="max-w-7xl mx-auto px-6 py-12 scroll-mt-10"
+      >
+        <h2
+          className="text-[20px] md:text-2xl font-semibold mb-8"
+          style={{ borderBottom: "1px solid white", display: "inline-block" }}
+        >
+          Projects
+        </h2>
+
+        {/* ================= DESKTOP/TABLET SECTION ================= */}
+        <div className="hidden md:block relative h-[260px] md:h-[300px] mx-3">
+          {projects.map((p, index) => {
+            const isPrimary = index === activeIndex;
+            const isSecondary = index === activeIndex + 1;
+            const isBefore = index < activeIndex;
+            const isAfter = index > activeIndex + 1;
+            const isVisible = isPrimary || isSecondary;
+
+            let positionClasses = "";
+            if (isSecondary) {
+              positionClasses = "right-0 md:w-[48%]";
+            } else if (isPrimary || isBefore) {
+              positionClasses = "left-0 md:w-[48%]";
+            } else {
+              positionClasses = "right-0 md:w-[48%]";
+            }
+
+            let stateClasses = "";
+            if (isVisible) {
+              stateClasses =
+                "opacity-100 translate-x-0 pointer-events-auto z-10";
+            } else if (isBefore) {
+              stateClasses =
+                "opacity-0 -translate-x-1/3 pointer-events-none z-0";
+            } else if (isAfter) {
+              stateClasses =
+                "opacity-0 translate-x-1/3 pointer-events-none z-0";
+            }
+
+            return (
+              <div
+                key={p.id}
+                className={`
+            absolute top-0 bottom-0 glass rounded-xl border border-white/10
+            shadow-[0_0_10px_rgba(255,255,255,0.05),0_0_20px_rgba(255,255,255,0.1)]
+            hover:shadow-[0_0_15px_rgba(255,255,255,0.1),0_0_30px_rgba(255,255,255,0.15)]
+            p-6 md:p-8 transition-all duration-700 transform
+            ${positionClasses} ${stateClasses}
+          `}
+              >
+                <div className="flex justify-between items-center">
+                  <h3 className="text-xl font-semibold">{p.title}</h3>
+                  <div className="flex gap-3">
+                    <GitHubIcon
+                      onClick={() => window.open(p.github, "_blank")}
+                      sx={{ cursor: "pointer" }}
+                    />
+                    <LiveTvIcon
+                      onClick={() => window.open(p.demo, "_blank")}
+                      sx={{ cursor: "pointer" }}
+                    />
+                  </div>
+                </div>
+
+                <p className="text-slate-300 mt-4">{p.desc}</p>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs px-3 py-1 rounded-md bg-white/5"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+
+          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-xs text-slate-500 text-center w-full">
+            <div>
+              Project {activeIndex + 1} of {projects.length}
+            </div>
+          </div>
+        </div>
+
+        {/* ================= MOBILE SECTION WITH BUTTONS ================= */}
+        {(() => {
+          const [mobileIndex, setMobileIndex] = useState(0);
+
+          const next = () =>
+            setMobileIndex((prev) => Math.min(prev + 1, projects.length - 1));
+          const prev = () => setMobileIndex((prev) => Math.max(prev - 1, 0));
+
+          const p = projects[mobileIndex];
+
+          return (
+            <div className="md:hidden flex flex-col gap-6 mt-6">
+              <div className="glass rounded-xl border border-white/10 p-5 shadow-lg">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-lg font-semibold">{p.title}</h3>
+                  <div className="flex gap-3">
+                    <GitHubIcon
+                      onClick={() => window.open(p.github, "_blank")}
+                      sx={{ cursor: "pointer" }}
+                    />
+                    <LiveTvIcon
+                      onClick={() => window.open(p.demo, "_blank")}
+                      sx={{ cursor: "pointer" }}
+                    />
+                  </div>
+                </div>
+
+                <p className="text-slate-300 mt-3 text-sm sm:text-base text">{p.desc}</p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs px-3 py-1 rounded-md bg-white/5"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                {/* <div className="text-center text-xs text-slate-400 mt-3">
+                  {mobileIndex + 1} of {projects.length}
+                </div> */}
+              </div>
+              {/* Buttons */}
+                <div className="flex justify-center gap-3">
+                  <button
+                    // className="px-4 py-2 bg-white/10 rounded-lg disabled:opacity-20"
+                    className="cursor-pointer"
+                    disabled={mobileIndex === 0}
+                    onClick={prev}
+                  >
+                    <NavigateBeforeIcon />
+                  </button>
+                  <button
+                  className="cursor-pointer"
+                    // className="px-4 bg-white/10 rounded-lg disabled:opacity-20"
+                    disabled={mobileIndex === projects.length - 1}
+                    onClick={next}
+                  >
+                    <NavigateNextIcon />
+                  </button>
+                </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* ---------- Contact ---------- */}
-      <section id="contact" className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold">Get in touch</h2>
-        <p className="text-slate-400 mt-2">
+      <section id="contact" className="max-w-7xl mx-auto px-6 py-12">
+        <h2
+          className="text-2xl font-semibold"
+          style={{ borderBottom: "1px solid white", display: "inline-block" }}
+        >
+          Get in touch
+        </h2>
+        <p className="text-slate-400 mt-5">
           Interested in working together? Send a message — I usually reply
           within a day.
         </p>
 
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Contact form (no real submission here) */}
-          <form
-            className="p-6 rounded-xl glass border border-white/6"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <label className="block text-xs text-slate-300">Name</label>
-            <input
-              className="w-full mt-1 p-3 rounded-md bg-white/5 border border-white/6 text-slate-100"
-              placeholder="Your name"
-            />
-
-            <label className="block text-xs text-slate-300 mt-4">Email</label>
-            <input
-              className="w-full mt-1 p-3 rounded-md bg-white/5 border border-white/6 text-slate-100"
-              placeholder="you@company.com"
-            />
-
-            <label className="block text-xs text-slate-300 mt-4">Message</label>
-            <textarea
-              className="w-full mt-1 p-3 rounded-md bg-white/5 border border-white/6 text-slate-100"
-              rows={5}
-              placeholder="Tell me about the project"
-            />
-
-            <div className="mt-4 flex items-center gap-3">
-              {/* Submit button: currently prevents default. Hook this to EmailJS or your API when ready. */}
-              <button
-                type="submit"
-                className="px-4 py-2 rounded-md bg-linear-to-r from-purple-600 to-indigo-500 text-white"
-              >
-                Send message
-              </button>
-              <button
-                type="button"
-                className="px-3 py-2 rounded-md border border-white/6 text-sm"
-              >
-                Download Resume
-              </button>
-            </div>
-          </form>
-
-          {/* Contact details card */}
-          <div className="p-6 rounded-xl glass border border-white/6">
-            <h3 className="font-semibold">Say hi</h3>
-            <p className="text-slate-300 mt-2">
-              Email:{" "}
-              <a href="mailto:asjad@example.com" className="text-slate-200">
-                asjad@example.com
-              </a>
-            </p>
-
-            <div className="mt-4">
-              <h4 className="text-sm text-slate-400 mb-2">Tools I use</h4>
-              <div className="flex flex-wrap gap-2">
-                {["VSCode", "Figma", "Git", "Vercel"].map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-2 py-1 rounded-md bg-white/4"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <h4 className="text-sm text-slate-400">Availability</h4>
-              {/* Small icon + text rows. Icons are decorative and accessible. */}
-              <div className="mt-2 flex items-center gap-2 text-sm text-slate-300">
-                <CheckIcon className="w-4 h-4" /> Open to freelance projects
-              </div>
-              <div className="mt-2 flex items-center gap-2 text-sm text-slate-300">
-                <InboxIcon className="w-4 h-4" /> Reply within 24-48 hours
-              </div>
-            </div>
-          </div>
-        </div>
+        <ContactComponent />
       </section>
 
       {/* ---------- Footer ---------- */}
