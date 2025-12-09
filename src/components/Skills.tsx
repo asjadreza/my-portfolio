@@ -79,9 +79,18 @@ const SkillsSection = () => {
       <div className="w-full max-w-7xl mb-4">
         <div className="text-sm flex md:flex-row flex-col items-start font-medium border-slate-500">
           {/* <h2 className="text-2xl font-semibold text-slate-100 border-b shrink-0"> */}
-          <h2 className="text-[20px] md:text-2xl font-semibold text-slate-100 border-b shrink-0">
-            Skills
+          <h2 className="text-[20px] md:text-5xl font-semibold text-slate-100 shrink-0">
+            SKILLS
           </h2>
+         
+          {/* <div className="flex flex-col items-start">
+            <h2 className="text-[20px] md:text-5xl mb-8 font-semibold text-slate-100 border-b shrink-0">
+            SKILLS
+          </h2>
+          <p className="text-3xl font-normal bg-linear-to-r from-emerald-400 via-sky-400 to-purple-500 bg-clip-text text-transparent">
+            What I know
+          </p>
+          </div> */}
           <div className="flex-1 flex mt-4 md:mt-0 justify-center">
             <ul className="flex flex-wrap -mb-px">
               <li className="me-2">
@@ -95,8 +104,6 @@ const SkillsSection = () => {
                 >
                   Frontend
                 </button>
-
-               
               </li>
               <li className="me-2">
                 <button

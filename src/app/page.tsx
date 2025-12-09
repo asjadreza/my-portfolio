@@ -1,17 +1,15 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { CheckIcon, InboxIcon, TvIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 import { ReactTyped } from "react-typed";
 import { FooterComponent } from "@/components/FooterComponent";
 import { Navbar } from "@/components/Navbar";
 import ExperienceTimeline from "@/components/Experience";
-import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Skills from "@/components/Skills";
 import ContactComponent from "@/components/Contact";
 
@@ -19,7 +17,7 @@ const projects = [
   {
     id: 1,
     title: "Beatdrop",
-    desc: "Beatdrop is a full-stack music streaming platform with Next.js, TypeScript,and React, featuring secure JWT authentication, real-time audio playback,and cloud-based media management through Cloudinary integration.",
+    desc: "Beatdrop is a full-stack music streaming platform built with Next.js, TypeScript, and React. It features secure JWT authentication, real-time audio playback, playlist handling, and Cloudinary-based media storage for reliable content management.",
     github: "http://github.com/asjadreza/fe-beatdrop-prod",
     demo: "https://fe-beatdrop-prod.vercel.app/",
     img: "/thumbnail/coding.jpg",
@@ -28,7 +26,7 @@ const projects = [
   {
     id: 2,
     title: "Weather-Web-App",
-    desc: "A simple, pleasant-looking web application built with HTML, CSS, and JavaScript that displays real-time weather information for a given location. It offers a straightforward UI to fetch and show weather data, making it easy for users to check current conditions in their city.",
+    desc: "A minimal, visually clean weather application using HTML, CSS, and JavaScript. It fetches real-time weather details via API and displays temperature, location, humidity, and conditions in an intuitive and user-friendly interface.",
     github: "https://github.com/asjadreza/WeatherWebApp",
     demo: "https://weather-web-app-32ou.onrender.com/",
     img: "/thumbnail/coding.jpg",
@@ -37,7 +35,7 @@ const projects = [
   {
     id: 3,
     title: "Todo Web App",
-    desc: "A simple web-based task manager built with Node.js and HTML/CSS/JS that lets users create a to-do list: add tasks, mark them complete, and remove tasks as needed. It provides a clean, minimalistic UI to help users stay organized and keep track of their daily tasks.",
+    desc: "A simple task management web app using Node.js and EJS. Users can add, complete, and delete tasks through a clean UI designed to improve productivity and organize daily work efficiently.",
     github: "https://github.com/asjadreza/todo-app",
     demo: "https://todo-app-a6r3.onrender.com/",
     img: "/thumbnail/coding.jpg",
@@ -46,7 +44,7 @@ const projects = [
   {
     id: 4,
     title: "Snake-Game",
-    desc: "A simple browser-based implementation of the classic Snake game using HTML, CSS, and JavaScript. It offers the core Snake gameplay: control a growing snake to eat food while avoiding collisions, all rendered in basic web technologies.",
+    desc: "A browser-based version of the classic Snake game built using HTML, CSS, and JavaScript. Players control the snake to eat food, grow, and avoid collisions for increasing score and challenge.",
     github: "https://github.com/asjadreza/Snake-Game/",
     demo: "https://asjadreza.github.io/Snake-Game/",
     img: "/thumbnail/coding.jpg",
@@ -55,7 +53,7 @@ const projects = [
   {
     id: 5,
     title: "Tic-Tac-Toe",
-    desc: "Simple browser-based Tic Tac Toe built with HTML, CSS, and vanilla JavaScript.Click to place X/O, automatic win detection with highlighted winning squares and a Restart button.",
+    desc: "A classic Tic-Tac-Toe game created using HTML, CSS, and JavaScript. Includes win detection, visual highlights, restart functionality, and responsive interactions for a simple yet engaging gameplay experience.",
     github: "https://github.com/asjadreza/tic-tac-toe",
     demo: "https://asjadreza.github.io/tic-tac-toe/",
     img: "/thumbnail/coding.jpg",
@@ -64,7 +62,7 @@ const projects = [
   {
     id: 6,
     title: "Simon game",
-    desc: "Simon Game is a web-based memory game that challenges players to repeat increasingly complex sequences of colors and sounds. Built with HTML, CSS, and JavaScript, it offers an interactive and fun way to test and improve your memory skills.",
+    desc: "Simon Game is a memory-based challenge where users repeat color sequences that grow progressively harder. Built using HTML, CSS, and JavaScript, it tests focus and recall through interactive gameplay.",
     github: "https://github.com/asjadreza/Simon_game",
     demo: "https://asjadreza.github.io/Simon_game/",
     img: "/thumbnail/coding.jpg",
@@ -268,7 +266,7 @@ export default function PortfolioPage() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-slate-200 text-center text-sm sm:text-base text"
           >
-            Results-oriented Software Developer with 2 years of experience
+            Software Developer with proven hands on experience in
             building responsive, high-performance web applications. Skilled in
             modern JavaScript frameworks and clean UI/UX. Currently freelancing
             and open to new opportunities.
@@ -291,47 +289,53 @@ export default function PortfolioPage() {
 
       <section id="experience" className="max-w-7xl mx-auto px-6 py-12">
         <h2
-          className="text-[20px] md:text-2xl  font-semibold mb-5"
-          style={{ borderBottom: "1px solid white", display: "inline-block" }}
+          className="text-[20px] md:text-5xl  font-semibold mb-5"
+          style={{ display: "inline-block" }}
         >
-          Experience
+          EXPERIENCE
         </h2>
         <ExperienceTimeline />
       </section>
 
-      {/* <section
+      <section
         id="projects"
         ref={sectionRef}
         className="max-w-7xl mx-auto px-6 py-12 scroll-mt-10"
       >
-        <h2
-          className="text-[20px] md:text-2xl  font-semibold mb-8"
-          style={{ borderBottom: "1px solid white", display: "inline-block" }}
-        >
-          Projects
-        </h2>
+        <div className=" flex-col justify-center items-start mb-6">
+          <h2
+            className="text-[20px] md:text-5xl font-semibold mb-6"
+            style={{ display: "inline-block" }}
+          >
+            PROJECTS
+          </h2>
 
-        <div className="relative h-[260px] md:h-[300px] mx-3">
+          <p className="text-slate-400 mt-5 text-sm sm:text-base text">
+            My recent work —{" "}
+            <span className="bg-linear-to-r from-emerald-400 via-sky-400 to-purple-500 bg-clip-text text-transparent">
+              explore now
+            </span>
+          </p>
+        </div>
+
+        {/* ================= DESKTOP/TABLET SECTION ================= */}
+        <div className="hidden lg:block relative h-[260px] md:h-[300px] mx-3">
           {projects.map((p, index) => {
             const isPrimary = index === activeIndex;
             const isSecondary = index === activeIndex + 1;
             const isBefore = index < activeIndex;
             const isAfter = index > activeIndex + 1;
-
             const isVisible = isPrimary || isSecondary;
 
-            // Position: left card (primary) & right card (secondary) on desktop
             let positionClasses = "";
             if (isSecondary) {
-              // show second card only on md+ so mobile still looks clean
-              positionClasses = "hidden md:block right-0 md:w-[48%]";
+              positionClasses = "right-0 md:w-[48%]";
             } else if (isPrimary || isBefore) {
-              positionClasses = "left-0 w-full md:w-[48%]";
+              positionClasses = "left-0 md:w-[48%]";
             } else {
-              positionClasses = "right-0 w-full md:w-[48%]";
+              positionClasses = "right-0 md:w-[48%]";
             }
 
-            // Animation state (similar feel to your old isActive/isBefore logic)
             let stateClasses = "";
             if (isVisible) {
               stateClasses =
@@ -347,17 +351,16 @@ export default function PortfolioPage() {
             return (
               <div
                 key={p.id}
-                rel="noopener noreferrer"
                 className={`
-                group absolute top-0 bottom-0 glass rounded-xl border
-                border-white/10
-                shadow-[0_0_10px_rgba(255,255,255,0.05),0_0_20px_rgba(255,255,255,0.1)]
-                hover:shadow-[0_0_15px_rgba(255,255,255,0.1),0_0_30px_rgba(255,255,255,0.15)]
-                p-6 md:p-8 transition-all duration-300
-                transform ${positionClasses} ${stateClasses}
-              `}
+                  group absolute top-0 bottom-0 glass rounded-xl border
+                  border-white/10
+                  shadow-[0_0_10px_rgba(255,255,255,0.05),0_0_20px_rgba(255,255,255,0.1)]
+                  hover:shadow-[0_0_15px_rgba(255,255,255,0.1),0_0_30px_rgba(255,255,255,0.15)]
+                  p-6 md:p-8 transition-all duration-300
+                  transform ${positionClasses} ${stateClasses}
+                `}
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex justify-between items-center">
                   <div>
                     <h3 className="text-xl font-semibold transition-colors">
                       {p.title}
@@ -427,105 +430,6 @@ export default function PortfolioPage() {
             <div>
               Project {activeIndex + 1} of {projects.length}
             </div>
-            {activeIndex === 0 && (
-              <div className="mt-1 opacity-50">
-                Scroll Up to previous section
-              </div>
-            )}
-            {activeIndex === projects.length - 1 && (
-              <div className="mt-1 opacity-50">Scroll Down to next section</div>
-            )}
-          </div>
-        </div>
-      </section> */}
-
-      <section
-        id="projects"
-        ref={sectionRef}
-        className="max-w-7xl mx-auto px-6 py-12 scroll-mt-10"
-      >
-        <h2
-          className="text-[20px] md:text-2xl font-semibold mb-8"
-          style={{ borderBottom: "1px solid white", display: "inline-block" }}
-        >
-          Projects
-        </h2>
-
-        {/* ================= DESKTOP/TABLET SECTION ================= */}
-        <div className="hidden md:block relative h-[260px] md:h-[300px] mx-3">
-          {projects.map((p, index) => {
-            const isPrimary = index === activeIndex;
-            const isSecondary = index === activeIndex + 1;
-            const isBefore = index < activeIndex;
-            const isAfter = index > activeIndex + 1;
-            const isVisible = isPrimary || isSecondary;
-
-            let positionClasses = "";
-            if (isSecondary) {
-              positionClasses = "right-0 md:w-[48%]";
-            } else if (isPrimary || isBefore) {
-              positionClasses = "left-0 md:w-[48%]";
-            } else {
-              positionClasses = "right-0 md:w-[48%]";
-            }
-
-            let stateClasses = "";
-            if (isVisible) {
-              stateClasses =
-                "opacity-100 translate-x-0 pointer-events-auto z-10";
-            } else if (isBefore) {
-              stateClasses =
-                "opacity-0 -translate-x-1/3 pointer-events-none z-0";
-            } else if (isAfter) {
-              stateClasses =
-                "opacity-0 translate-x-1/3 pointer-events-none z-0";
-            }
-
-            return (
-              <div
-                key={p.id}
-                className={`
-            absolute top-0 bottom-0 glass rounded-xl border border-white/10
-            shadow-[0_0_10px_rgba(255,255,255,0.05),0_0_20px_rgba(255,255,255,0.1)]
-            hover:shadow-[0_0_15px_rgba(255,255,255,0.1),0_0_30px_rgba(255,255,255,0.15)]
-            p-6 md:p-8 transition-all duration-700 transform
-            ${positionClasses} ${stateClasses}
-          `}
-              >
-                <div className="flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{p.title}</h3>
-                  <div className="flex gap-3">
-                    <GitHubIcon
-                      onClick={() => window.open(p.github, "_blank")}
-                      sx={{ cursor: "pointer" }}
-                    />
-                    <LiveTvIcon
-                      onClick={() => window.open(p.demo, "_blank")}
-                      sx={{ cursor: "pointer" }}
-                    />
-                  </div>
-                </div>
-
-                <p className="text-slate-300 mt-4">{p.desc}</p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-3 py-1 rounded-md bg-white/5"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-
-          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-xs text-slate-500 text-center w-full">
-            <div>
-              Project {activeIndex + 1} of {projects.length}
-            </div>
           </div>
         </div>
 
@@ -540,29 +444,41 @@ export default function PortfolioPage() {
           const p = projects[mobileIndex];
 
           return (
-            <div className="md:hidden flex flex-col gap-6 mt-6">
-              <div className="glass rounded-xl border border-white/10 p-5 shadow-lg">
+            <div className="lg:hidden flex flex-col gap-6 mt-6">
+              <div className="
+              glass rounded-xl border border-white/10 p-5 
+               shadow-[0_0_10px_rgba(255,255,255,0.05),0_0_20px_rgba(255,255,255,0.1)]
+                hover:shadow-[0_0_15px_rgba(255,255,255,0.1),0_0_30px_rgba(255,255,255,0.15)]
+                md:p-8 transition-all duration-300
+              ">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-semibold">{p.title}</h3>
+                  <h3 className="text-lg font-semibold text-[16px]">
+                    {p.title}
+                  </h3>
                   <div className="flex gap-3">
                     <GitHubIcon
                       onClick={() => window.open(p.github, "_blank")}
-                      sx={{ cursor: "pointer" }}
+                      className="text-[#8E9EB6]"
+                      sx={{ cursor: "pointer", fontSize: 20 }}
                     />
                     <LiveTvIcon
                       onClick={() => window.open(p.demo, "_blank")}
-                      sx={{ cursor: "pointer" }}
+                      className="text-[#8E9EB6]"
+                      sx={{ cursor: "pointer", fontSize: 20 }}
                     />
                   </div>
                 </div>
 
-                <p className="text-slate-300 mt-3 text-sm sm:text-base text">{p.desc}</p>
+                <p className="text-slate-300 mt-3 text-sm sm:text-base text">
+                  {p.desc}
+                </p>
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <span
                       key={t}
                       className="text-xs px-3 py-1 rounded-md bg-white/5"
+                      style={{ fontSize: "10px" }}
                     >
                       {t}
                     </span>
@@ -573,24 +489,24 @@ export default function PortfolioPage() {
                 </div> */}
               </div>
               {/* Buttons */}
-                <div className="flex justify-center gap-3">
-                  <button
-                    // className="px-4 py-2 bg-white/10 rounded-lg disabled:opacity-20"
-                    className="cursor-pointer"
-                    disabled={mobileIndex === 0}
-                    onClick={prev}
-                  >
-                    <NavigateBeforeIcon />
-                  </button>
-                  <button
+              <div className="flex justify-center gap-3">
+                <button
+                  // className="px-4 py-2 bg-white/10 rounded-lg disabled:opacity-20"
                   className="cursor-pointer"
-                    // className="px-4 bg-white/10 rounded-lg disabled:opacity-20"
-                    disabled={mobileIndex === projects.length - 1}
-                    onClick={next}
-                  >
-                    <NavigateNextIcon />
-                  </button>
-                </div>
+                  disabled={mobileIndex === 0}
+                  onClick={prev}
+                >
+                  <NavigateBeforeIcon />
+                </button>
+                <button
+                  className="cursor-pointer"
+                  // className="px-4 bg-white/10 rounded-lg disabled:opacity-20"
+                  disabled={mobileIndex === projects.length - 1}
+                  onClick={next}
+                >
+                  <NavigateNextIcon />
+                </button>
+              </div>
             </div>
           );
         })()}
@@ -599,14 +515,16 @@ export default function PortfolioPage() {
       {/* ---------- Contact ---------- */}
       <section id="contact" className="max-w-7xl mx-auto px-6 py-12">
         <h2
-          className="text-2xl font-semibold"
-          style={{ borderBottom: "1px solid white", display: "inline-block" }}
+          className="text-[20px] md:text-5xl font-semibold mb-6"
+          style={{ display: "inline-block" }}
         >
-          Get in touch
+          CONTACT ME
         </h2>
-        <p className="text-slate-400 mt-5">
-          Interested in working together? Send a message — I usually reply
-          within a day.
+        <p className="text-slate-400 mt-5 text-sm sm:text-base text">
+          Interested in working together? Send a message — {""}
+          <span className="bg-linear-to-r from-emerald-400 via-sky-400 to-purple-500 bg-clip-text text-transparent">
+            i usually reply within a day.
+          </span>
         </p>
 
         <ContactComponent />

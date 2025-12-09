@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import {
   CheckIcon,
   InboxIcon,
-  ChatBubbleLeftRightIcon,
 } from "@heroicons/react/24/outline";
-import { PhoneIcon } from "@heroicons/react/24/solid";
 import { WhatsApp } from "@mui/icons-material";
 import CallIcon from "@mui/icons-material/Call";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -83,7 +81,7 @@ export default function ContactComponent() {
   };
 
   return (
-    <div className="max-w-[1190px]">
+    <div className="max-w-[1190px] ms-3">
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         <form
           className="
@@ -103,7 +101,7 @@ export default function ContactComponent() {
             value={formData.name}
             onChange={handleInputChange}
             placeholder="Your name"
-            className={`w-full mt-1 p-3 rounded-md bg-white/5 text-slate-100 transition-all outline-none
+            className={`w-full text-sm sm:text-base text mt-1 p-3 rounded-md bg-white/5 text-slate-100 transition-all outline-none
             border ${
               errors.name
                 ? "border-red-500/70 glow-error"
@@ -124,7 +122,7 @@ export default function ContactComponent() {
             value={formData.email}
             placeholder="you@company.com"
             onChange={handleInputChange}
-            className={`w-full mt-1 p-3 rounded-md bg-white/5 text-slate-100 transition-all outline-none
+            className={`w-full text-sm sm:text-base text mt-1 p-3 rounded-md bg-white/5 text-slate-100 transition-all outline-none
             border ${
               errors.email
                 ? "border-red-500/70 glow-error"
@@ -145,7 +143,7 @@ export default function ContactComponent() {
             placeholder="Tell me about the project"
             value={formData.message}
             onChange={handleInputChange}
-            className={`w-full mt-1 p-3 rounded-md bg-white/5 text-slate-100 transition-all outline-none
+            className={`w-full text-sm sm:text-base text mt-1 p-3 rounded-md bg-white/5 text-slate-100 transition-all outline-none
             border ${
               errors.message
                 ? "border-red-500/70 glow-error"
@@ -162,7 +160,7 @@ export default function ContactComponent() {
             <button
               type="submit"
               disabled={loading}
-              className="inline-flex items-center px-4 cursor-pointer py-2 rounded-md border border-white/10
+              className="inline-flex items-center px-4 cursor-pointer py-2 rounded-md border border-white/10 text-sm sm:text-base text
                transition-transform duration-200 hover:scale-98 hover:bg-slate-100 text-slate-300 hover:text-slate-950"
             >
               {loading ? "Sending..." : "Send Message"}
@@ -210,17 +208,17 @@ export default function ContactComponent() {
 
             
               <div className="mt-2">
-                <EmailIcon className="text-[#8E9EB6] mr-2" />
+                <EmailIcon className="text-[#8E9EB6] mr-2"  />
                 <a
                   href="mailto:asjadreza64@gmail.com"
-                  className="text-slate-300"
+                  className="text-slate-300 text-sm sm:text-base text"
                 >
                   asjadreza64@gmail.com
                 </a>
               </div>
 
               <div className="mt-4">
-                <h4 className="text-sm text-slate-400 mb-2">Tools I use</h4>
+                <h4 className="text-slate-400 mb-2 text-sm sm:text-base text">Tools I use</h4>
                 <div className="flex flex-wrap gap-2">
                   {["VSCode", "Figma", "Git", "Vercel"].map((t) => (
                     <span
@@ -236,7 +234,7 @@ export default function ContactComponent() {
           </div>
 
           <div className="mt-6 border rounded-xl border-white/10 flex flex-col p-5 hover:border-white/65 transition-all duration-300 group">
-            <h4 className="text-sm text-slate-400">Availability</h4>
+            <h4 className="text-slate-400 text-sm sm:text-base text">Availability</h4>
             <div className="mt-2 flex items-center gap-2 text-sm text-slate-300">
               <CheckIcon className="w-4 h-4" /> Open to freelance projects
             </div>
@@ -254,14 +252,14 @@ export default function ContactComponent() {
                 className="flex flex-row gap-2 items-center hover:text-green-400 transition"
               >
                 <WhatsApp className="w-5 h-5 text-green-400" />
-                <div className="text-slate-300" >Send Message</div>
+                <div className="text-slate-300 text-sm sm:text-base text hover:text-green-400" >Send Message</div>
               </a>
               <a
                 href="tel:+919709392790"
                 className="flex flex-row gap-2 items-center hover:text-indigo-400 transition"
               >
                 <CallIcon className="w-5 h-5 text-indigo-400" />
-                <div className="text-slate-300">+91 9709392790</div>
+                <div className="text-slate-300 text-sm sm:text-base text hover:text-indigo-400">+91 9709392790</div>
               </a>
             </div>
           </div>
