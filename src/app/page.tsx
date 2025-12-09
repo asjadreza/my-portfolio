@@ -273,11 +273,12 @@ export default function PortfolioPage() {
           </motion.p>
           <div className="mt-6 flex items-center justify-center flex-wrap gap-3">
             <a
-              href="#contact"
+              href="/resume/ASJAD_CV.pdf"
+              target="_blank"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-100 text-slate-200
                transition-transform duration-200 hover:scale-105 hover:bg-slate-100 hover:text-slate-950 text-sm sm:text-base text"
             >
-              Contact Me
+              Download Resume
             </a>
           </div>
         </div>

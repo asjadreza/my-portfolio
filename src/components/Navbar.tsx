@@ -21,13 +21,6 @@ export const Navbar = () => {
             <a href="#contact" className="hover:text-white transition-colors">
               Contact
             </a>
-            {/* resume CTA */}
-            <a
-              href="#"
-              className="ml-4 inline-block px-3 py-2 rounded-lg bg-linear-to-r from-purple-600 to-indigo-500 text-white text-sm hover:opacity-90 transition-opacity"
-            >
-              Resume
-            </a>
           </nav>
 
           {/* mobile menu button (no behaviour implemented - placeholder) */}
