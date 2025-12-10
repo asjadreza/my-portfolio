@@ -12,6 +12,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Skills from "@/components/Skills";
 import ContactComponent from "@/components/Contact";
+import Chatbot from "@/components/Chatbot";
 
 const projects = [
   {
@@ -533,6 +534,9 @@ export default function PortfolioPage() {
 
       {/* ---------- Footer ---------- */}
       <FooterComponent />
+
+      {/* ---------- Chatbot ---------- */}
+      <Chatbot />
     </main>
   );
 }
