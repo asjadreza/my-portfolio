@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
-import StarsCanvas from "@/components/main/StarsBackground";
+import StarsClient from "@/components/StarsClient";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -26,7 +26,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable}`}
       >
-        <StarsCanvas />
+        <StarsClient />
         {children}
         <ToastContainer
           position="top-right"

@@ -115,3 +115,16 @@ export async function getVectorStore(): Promise<MemoryVectorStore> {
   return vectorStore;
 }
 
+// Background warm-up to reduce cold-start latency.
+// This will attempt to initialize the vector store on module import in non-test environments.
+// Set `SKIP_VECTOR_WARMUP=1` in your environment to skip this behavior.
+if (process.env.NODE_ENV !== "test" && !process.env.SKIP_VECTOR_WARMUP) {
+  initializeVectorStore()
+    .then(() => {
+      console.info("Vector store background initialization complete");
+    })
+    .catch((err) => {
+      console.warn("Vector store background initialization failed:", err?.message ?? err);
+    });
+}
+

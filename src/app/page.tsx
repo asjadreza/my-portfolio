@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ReactTyped } from "react-typed";
 import { FooterComponent } from "@/components/FooterComponent";
@@ -12,7 +14,10 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Skills from "@/components/Skills";
 import ContactComponent from "@/components/Contact";
-import Chatbot from "@/components/Chatbot";
+const Chatbot = dynamic(() => import("@/components/Chatbot"), {
+  ssr: false,
+  loading: () => null,
+});
 
 const projects = [
   {
@@ -225,9 +230,11 @@ export default function PortfolioPage() {
       <section className="max-w-4xl mx-auto px-6 py-5 gap-8 ">
         <div className="flex items-center justify-center">
           <div className="p-0.5 rounded-full bg-linear-to-tr from-purple-500 via-pink-500 to-blue-500 mt-12">
-            <img
+            <Image
               src="/Avatar.jpg"
               alt="Avatar"
+              width={150}
+              height={150}
               className="w-50 h-50 rounded-full object-cover"
             />
           </div>
