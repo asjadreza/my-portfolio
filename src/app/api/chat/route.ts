@@ -1,13 +1,12 @@
 // RAG Chatbot API Route
 import { NextRequest, NextResponse } from "next/server";
 import { ChatGroq } from "@langchain/groq";
-import { getVectorStore } from "@/lib/vector-store";
-import { RunnableSequence } from "@langchain/core/runnables";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import {
   ChatPromptTemplate,
   MessagesPlaceholder,
 } from "@langchain/core/prompts";
+import { getPortfolioText } from "@/lib/portfolio-data";
 
 // Initialize the LLM (Groq provides free API access)
 const llm = new ChatGroq({
@@ -16,59 +15,34 @@ const llm = new ChatGroq({
   apiKey: process.env.GROQ_API_KEY, // You'll need to set this in .env.local
 });
 
-// Create the RAG chain
-async function createRAGChain() {
-  const vectorStore = await getVectorStore();
+const STATIC_CONTEXT = `${getPortfolioText()}
 
-  // Create the prompt template
-  const prompt = ChatPromptTemplate.fromMessages([
-    [
-      "system",
-      `You are Asjad's AI assistant. Identify yourself clearly as Asjad's AI assistant (for example: "I am Asjad's AI assistant") when speaking on behalf of Asjad.
-      Never claim to be Asjad or a human. Use first-person phrasing like "I" when appropriate, but always make clear you are Asjad's AI assistant.
+Resume summary:
+- Software Engineer (SYMB Technologies, Oct 2023 — June 2025) leading dashboard optimizations, drag-and-drop game management, REST + GraphQL APIs, and Vue 2 → Vue 3 migrations.
+- Frontend Developer (Upwork/Freelance, Jun 2025 — Present) delivering BeatDrop (full-stack music streaming, JWT auth, real-time audio, Cloudinary), and Silanyas (end-to-end ecommerce with payments and auth).
+- Core stack: React, Next.js, Vue/Nuxt, Node/Express, PostgreSQL, Prisma, MongoDB, Tailwind, Material UI, Redux, LangChain, Docker, Azure, Kubernetes.
+- Portfolio projects: Beatdrop (Next.js/TS/Node/PostgreSQL/Prisma), Weather Web App, Todo Web App, Snake Game, Tic-Tac-Toe, Simon Game with demos and GitHub links.`;
 
-      Answer questions about Asjad Reza's portfolio, skills, experience, and projects using only the provided context. If the user asks about hiring or contacting, respond on Asjad's behalf and offer clear next steps (for example: contact via the website contact form or the resume). Do NOT invent private contact details; if exact contact details are not present in the provided context, direct the user to the website contact form or the resume for contact information.
+const prompt = ChatPromptTemplate.fromMessages([
+  [
+    "system",
+    `You are Asjad's AI assistant. Identify yourself clearly as Asjad's AI assistant (for example: "I am Asjad's AI assistant") when speaking on behalf of Asjad.
+    Never claim to be Asjad or a human. Use first-person phrasing like "I" when appropriate, but always make clear you are Asjad's AI assistant.
 
-      Be concise, helpful, and friendly. If you don't know something based on the context, say so politely and suggest how the user can reach Asjad for clarification.
+    Answer questions about Asjad Reza's portfolio, skills, experience, and projects using only the provided context. If the user asks about hiring or contacting, respond on Asjad's behalf and offer clear next steps (for example: contact via the website contact form or the resume). Do NOT invent private contact details; if exact contact details are not present in the provided context, direct the user to the website contact form or the resume for contact information.
 
-      Context: {context}`,
-    ],
-    new MessagesPlaceholder("chat_history"),
-    ["human", "{question}"],
-  ]);
+    Be concise, helpful, and friendly. If you don't know something based on the context, say so politely and suggest how the user can reach Asjad for clarification.
 
-  // Create the chain
-  const chain = RunnableSequence.from([
-    {
-      question: (input: { question: string; chat_history?: any[] }) =>
-        input.question,
-      chat_history: (input: { question: string; chat_history?: any[] }) =>
-        input.chat_history || [],
-      context: async (input: { question: string }) => {
-        // Use similaritySearch directly instead of retriever
-        const docs = await vectorStore.similaritySearch(input.question, 4);
-        return docs.map((doc) => doc.pageContent).join("\n\n");
-      },
-    },
-    prompt,
-    llm,
-    new StringOutputParser(),
-  ]);
+    Context: {context}`,
+  ],
+  new MessagesPlaceholder("chat_history"),
+  ["human", "{question}"],
+]);
 
-  return chain;
-}
-
-// Store chains in memory (in production, you might want to use a cache)
-let ragChain: RunnableSequence<any, string> | null = null;
+const chain = prompt.pipe(llm).pipe(new StringOutputParser());
 
 export async function POST(req: NextRequest) {
   try {
-    // Initialize chain if not already initialized
-    if (!ragChain) {
-      console.log("Initializing RAG chain...");
-      ragChain = await createRAGChain();
-    }
-
     const { question, chat_history } = await req.json();
 
     if (!question) {
@@ -80,10 +54,11 @@ export async function POST(req: NextRequest) {
 
     console.log("Processing question:", question);
 
-    // Invoke the chain
-    const response = await ragChain.invoke({
+    // Invoke the chain with static context (no server-side file system work)
+    const response = await chain.invoke({
       question,
       chat_history: chat_history || [],
+      context: STATIC_CONTEXT,
     });
 
     return NextResponse.json({ answer: response });
