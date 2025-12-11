@@ -36,7 +36,7 @@
     "groq-sdk": "^0.37.0",
     "langchain": "^0.3.36",
     "maath": "^0.10.8",
-    "next": "15.5.6",
+    "next": "15.5.7",
     "pdf-parse": "^2.4.5",
     "pdfjs-dist": "^5.4.449",
     "postcss": "^8.5.6",
