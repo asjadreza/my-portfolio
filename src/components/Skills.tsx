@@ -91,7 +91,7 @@ const SkillsSection = () => {
             What I know
           </p>
           </div> */}
-          <div className="flex-1 flex mt-4 md:mt-0 justify-center">
+          <div className="flex-1 flex w-full mt-4 md:mt-0 justify-center items-center">
             <ul className="flex flex-wrap -mb-px">
               <li className="me-2">
                 <button

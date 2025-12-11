@@ -298,7 +298,7 @@ export default function PortfolioPage() {
 
       <section id="experience" className="max-w-7xl mx-auto px-6 py-12">
         <h2
-          className="text-[20px] md:text-5xl  font-semibold mb-5"
+          className="text-[20px] md:text-5xl  font-semibold mb-10"
           style={{ display: "inline-block" }}
         >
           EXPERIENCE

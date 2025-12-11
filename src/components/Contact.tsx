@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import {
-  CheckIcon,
-  InboxIcon,
-} from "@heroicons/react/24/outline";
+import { CheckIcon, InboxIcon } from "@heroicons/react/24/outline";
 import { WhatsApp } from "@mui/icons-material";
 import CallIcon from "@mui/icons-material/Call";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -38,50 +35,66 @@ export default function ContactComponent() {
 
   const validate = () => {
     let newErrors = { name: "", email: "", message: "" };
-    let hasError = false;
+    let isValid = true;
 
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
-      hasError = true;
+      isValid = false;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
-      hasError = true;
+      isValid = false;
     }
 
-    if (formData.message.trim().length < 10) {
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+      isValid = false;
+    } else if (formData.message.trim().length < 10) {
       newErrors.message = "Message should be at least 10 characters";
-      hasError = true;
+      isValid = false;
     }
 
     setErrors(newErrors);
-    return !hasError;
+    return isValid;
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Validate before setting loading state
+    if (!validate()) {
+      return; // Don't proceed if validation fails
+    }
+
     setLoading(true);
-    if (!validate()) return;
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-    setLoading(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (res.ok) {
-      toast.success("Message sent successfully! 🚀");
-      setFormData({ name: "", email: "", message: "" });
-    } else {
+      if (res.ok) {
+        toast.success("Message sent successfully! 🚀");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
       toast.error("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-[1190px] ms-3">
+    <div className="max-w-[1190px] md:ms-3">
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         <form
           className="
@@ -168,7 +181,7 @@ export default function ContactComponent() {
           </div>
         </form>
 
-        <div className="rounded-xl glass flex flex-col ms-2">
+        <div className="rounded-xl glass flex flex-col md:ms-2">
           <div className="flex flex-col">
             <div className="border rounded-xl border-white/10 flex flex-col p-5 hover:border-white/65 transition-all duration-300 group">
               <h3 className="font-semibold">Say hi</h3>
@@ -206,9 +219,8 @@ export default function ContactComponent() {
                 ))}
               </div>
 
-            
               <div className="mt-2">
-                <EmailIcon className="text-[#8E9EB6] mr-2"  />
+                <EmailIcon className="text-[#8E9EB6] mr-2" />
                 <a
                   href="mailto:asjadreza64@gmail.com"
                   className="text-slate-300 text-sm sm:text-base text"
@@ -218,7 +230,9 @@ export default function ContactComponent() {
               </div>
 
               <div className="mt-4">
-                <h4 className="text-slate-400 mb-2 text-sm sm:text-base text">Tools I use</h4>
+                <h4 className="text-slate-400 mb-2 text-sm sm:text-base text">
+                  Tools I use
+                </h4>
                 <div className="flex flex-wrap gap-2">
                   {["VSCode", "Figma", "Git", "Vercel"].map((t) => (
                     <span
@@ -234,7 +248,9 @@ export default function ContactComponent() {
           </div>
 
           <div className="mt-6 border rounded-xl border-white/10 flex flex-col p-5 hover:border-white/65 transition-all duration-300 group">
-            <h4 className="text-slate-400 text-sm sm:text-base text">Availability</h4>
+            <h4 className="text-slate-400 text-sm sm:text-base text">
+              Availability
+            </h4>
             <div className="mt-2 flex items-center gap-2 text-sm text-slate-300">
               <CheckIcon className="w-4 h-4" /> Open to freelance projects
             </div>
@@ -252,14 +268,18 @@ export default function ContactComponent() {
                 className="flex flex-row gap-2 items-center hover:text-green-400 transition"
               >
                 <WhatsApp className="w-5 h-5 text-green-400" />
-                <div className="text-slate-300 text-sm sm:text-base text hover:text-green-400" >Send Message</div>
+                <div className="text-slate-300 text-sm sm:text-base text hover:text-green-400">
+                  Send Message
+                </div>
               </a>
               <a
                 href="tel:+919709392790"
                 className="flex flex-row gap-2 items-center hover:text-indigo-400 transition"
               >
                 <CallIcon className="w-5 h-5 text-indigo-400" />
-                <div className="text-slate-300 text-sm sm:text-base text hover:text-indigo-400">+91 9709392790</div>
+                <div className="text-slate-300 text-sm sm:text-base text hover:text-indigo-400">
+                  +91 9709392790
+                </div>
               </a>
             </div>
           </div>

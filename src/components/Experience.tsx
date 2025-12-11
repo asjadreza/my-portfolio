@@ -13,7 +13,7 @@ import WorkIcon from "@mui/icons-material/Work";
 
 export default function ExperienceTimeline() {
   return (
-    <Timeline sx={{ "& .MuiTimelineItem-root:before": { display: "none" } }}>
+    <Timeline sx={{ "& .MuiTimelineItem-root:before": { display: "none" }}}>
       {/* Ombrella */}
       <TimelineItem>
         <TimelineSeparator>
